@@ -1,0 +1,31 @@
+{
+  "name": "polymer-list-item-notify-bridge",
+  "version": "1.0.0",
+  "description": "A polymer element that does the appropriate notifyPath() calls when editing a specific model of a list",
+  "main": "polymer-list-item-notify-bridge.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/web-component-tester/bin/wct"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Greasidis/polymer-list-item-notify-bridge.git"
+  },
+  "keywords": [
+    "web-components",
+    "polymer",
+    "notifyPath",
+    "list",
+    "selected",
+    "item",
+    "bridge"
+  ],
+  "author": "Thodoris Greasidis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Greasidis/polymer-list-item-notify-bridge/issues"
+  },
+  "homepage": "https://github.com/Greasidis/polymer-list-item-notify-bridge#readme"
+}

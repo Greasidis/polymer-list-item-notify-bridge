@@ -1,0 +1,25 @@
+{
+  "name": "polymer-list-item-notify-bridge",
+  "description": "A polymer element that does the appropriate notifyPath() calls when editing a specific model of a list",
+  "main": "polymer-list-item-notify-bridge.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/Greasidis/polymer-list-item-notify-bridge",
+  "_release": "2e8777875a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2e8777875aebd3127455d485ff1900e8daf27361"
+  },
+  "_source": "git://github.com/Greasidis/polymer-list-item-notify-bridge.git",
+  "_target": "master",
+  "_originalSource": "Greasidis/polymer-list-item-notify-bridge",
+  "_direct": true
+}

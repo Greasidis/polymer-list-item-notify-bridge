@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <title>polymer-list-item-notify-bridge demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../polymer-list-item-notify-bridge.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic polymer-list-item-notify-bridge Demo</h3>
+      <demo-snippet>
+        <template is="dom-bind" id="app">
+          <polymer-list-item-notify-bridge items={{list}} selected-item={{selectedListItem}}></polymer-list-item-notify-bridge>
+          
+          <label>
+            Edit selected item
+            <input value="{{selectedListItem.title::input}}">
+          </label>
+          
+          <div>
+            <b>selectedListItem</b>
+            <p>id: {{selectedListItem.id}}</p>
+            <p>title: {{selectedListItem.title}}</p>
+          </div>
+          <div>
+            <b>list titles</b>
+            <ul>
+              <template is="dom-repeat" items="{{list}}">
+                <li>
+                  <button type="button" on-tap="selectItem">Select</button>
+                  <span>{{item.title}}</span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </template>
+        <script type="text/javascript">
+          (function () {
+            var app = document.querySelector('#app');
+            app.list = [
+              { id: 1, title: 'item 1'},
+              { id: 2, title: 'item 2'},
+              { id: 3, title: 'item 3'}
+            ];
+            app.selectedListItem = app.list[0];
+
+            app.selectItem = function (e) {
+              app.selectedListItem = e.model.item;
+            }
+          })();
+        </script>
+      </demo-snippet>
+    </div>
+
+  </body>
+</html>
