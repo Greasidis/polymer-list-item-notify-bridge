@@ -1,0 +1,68 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`polymer-list-item-notify-bridge`
+A polymer element that does the appropriate notifyPath() calls when editing a specific model of a list
+
+@demo demo/index.html 
+-->
+
+<dom-module id="polymer-list-item-notify-bridge">
+  <template></template>
+  <script>
+    Polymer({
+        is: 'polymer-list-item-notify-bridge',
+        properties: {
+            items: {
+                type: Array,
+                default: function (f) {
+                    return [];
+                },
+                notify: true
+            },
+            selectedItem: {
+                type: Object,
+                default: function (f) {
+                    return {};
+                },
+                notify: true
+            }
+        },
+
+        observers: [
+            '_itemsChanged(items.*)',
+            '_selectedItemChanged(selectedItem.*)'
+        ],
+
+        _itemsChanged: function (changeRecord) {
+            if (!this.items || !this.items.length) {
+                return;
+            }
+            var i = this.items.indexOf(this.selectedItem);
+            if (i < 0) {
+                return;
+            }
+            var changedIndexStr = (changeRecord.path.match(/^items\.#(\d+)\./) || [])[1];
+            if (!changedIndexStr || i !== Number(changedIndexStr)) {
+                return;
+            }
+            this.notifyPath(
+                changeRecord.path.replace(/^items\.#(\d+)\./, 'selectedItem.'),
+                this.get(changeRecord.path));
+        },
+
+        _selectedItemChanged: function(changeRecord) {
+            if (!this.items || !this.items.length) {
+                return;
+            }
+            var i = this.items.indexOf(this.selectedItem);
+            if (i < 0) {
+                return;
+            }
+            this.notifyPath(
+                changeRecord.path.replace('selectedItem', 'items.#' + i),
+                this.get(changeRecord.path));
+        }
+    });
+  </script>
+</dom-module>
